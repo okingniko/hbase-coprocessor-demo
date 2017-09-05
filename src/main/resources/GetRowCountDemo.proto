@@ -1,0 +1,20 @@
+syntax = "proto2";
+
+option java_package = "com.okingniko.coprocessor.demo";
+
+option java_outer_classname = "GetRowCount";
+option java_generic_services = true;
+option optimize_for = SPEED;
+
+message GetRowCountRequest {
+    required bool reCount = 1;
+}
+
+message GetRowCountResponse {
+    optional int64 rowCount = 1;
+}
+
+service GetRowCountService {
+    rpc getRowCount(GetRowCountRequest)
+    returns(GetRowCountResponse);
+}
